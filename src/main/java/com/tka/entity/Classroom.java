@@ -1,15 +1,19 @@
 package com.tka.entity;
 
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -27,10 +31,13 @@ public class Classroom {
 	String clsName;
 	
 
-//	
-//	@OneToMany(cascade = CascadeType.ALL/*,mappedBy = "classroom"*/)
-//	@JoinColumn(name="clsId")
+	
+//	@OneToMany(cascade = CascadeType.ALL ,mappedBy = "classroom")
 //	List<ClassSchedule> classSchedule;
+	
+	@OneToMany(mappedBy = "classroom" ,fetch = FetchType.LAZY)
+	@JsonIgnore
+	private Set<ClassSchedule> classSchedules;
 	
 
 }

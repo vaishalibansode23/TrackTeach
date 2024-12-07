@@ -1,5 +1,6 @@
 package com.tka.dao;
 
+
 import java.util.List;
 
 import org.hibernate.Criteria;
@@ -22,11 +23,7 @@ public class ClassRoomDaoImpl implements ClassRoomDao{
 		Criteria c=session.createCriteria(Classroom.class);
 		 @SuppressWarnings("unchecked")
 		List<Classroom> clist=c.list();
-		 return clist;
-			 
-			
-		
-		 
+		 return clist;	 
 	 }
 	public Classroom getClassroomById(int id)
 	{

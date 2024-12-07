@@ -1,14 +1,18 @@
 package com.tka.entity;
 
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -28,9 +32,15 @@ public class Department {
 
 	
 //	@OneToMany(cascade = CascadeType.ALL,mappedBy = "department")
-//	List<Faculty> faculty;
-	
+//     List<Faculty> faculty;
+//	
+	@OneToMany(mappedBy = "department",fetch = FetchType.LAZY)
+	@JsonIgnore
+    private Set<Faculty> faculties;
 
+    @OneToMany(mappedBy = "department",fetch = FetchType.LAZY)
+    @JsonIgnore
+    private Set<Course> courses;
 	
 	
 
