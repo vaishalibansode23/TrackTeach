@@ -32,32 +32,17 @@ public class ClassSchedule {
 	String dayOfWeek;
 	LocalTime endTime;
 	LocalTime stratTime;
-	
-//	@ManyToOne
-//	@JoinColumn(name="clsId")
-//	private Classroom classroom;
-//	
-//	@ManyToOne
-//	@JoinColumn(name="subjectId")
-//	private Subject subject;
-//	
-//	@OneToMany(cascade = CascadeType.ALL,mappedBy = "classschedule")
-//	List<Faculty_Attendence> facultyAttendence;
-	
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "classroom_id")
-    @JsonIgnore
     private Classroom classroom;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "subject_id")
-    @JsonIgnore
     private Subject subject;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "faculty_id")
-    @JsonIgnore
     private Faculty faculty;
 
 	

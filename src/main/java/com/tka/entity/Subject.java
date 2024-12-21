@@ -30,26 +30,6 @@ public class Subject {
 	int subId;
 	String subName;
 	
-
-//	@ManyToOne
-//	@JoinColumn(name="courseId")
-//	private Course course;
-//	
-//	@OneToMany(cascade = CascadeType.ALL,mappedBy = "subject")
-//	List<ClassSchedule> classSchedule;
-	
-	@ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "course_id")
-	//@JsonIgnore
-    private Course course;
-
-    @ManyToMany(mappedBy = "subjects",fetch = FetchType.LAZY)
-    @JsonIgnore
-    private Set<Faculty> faculties;
-
-    @OneToMany(mappedBy = "subject",fetch = FetchType.LAZY)
-    @JsonIgnore
-    private Set<ClassSchedule> classSchedules;
 	
 	
 

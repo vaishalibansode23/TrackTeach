@@ -34,36 +34,9 @@ public class Faculty {
 	String facultyName;
 	String email;
 	String contact;
-
-	
-	
-	
-//	@ManyToOne
-//	@JoinColumn(name="deptId")
-//	private Department department;
-//	
-//	@OneToMany(cascade = CascadeType.ALL,mappedBy = "faculty")
-//	List<Faculty_Attendence> facultyAttendence;
-
-	
-	@ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "department_id")
-	@JsonIgnore
-    private Department department;
-
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(
-      name = "faculty_subject",
-      joinColumns = @JoinColumn(name = "faculty_id"),
-      inverseJoinColumns = @JoinColumn(name = "subject_id"))
-    @JsonIgnore
-    private Set<Subject> subjects;
-
-    @OneToMany(mappedBy = "faculty",fetch = FetchType.LAZY)
-    @JsonIgnore
-    private Set<Faculty_Attendence> facultyAttendances;
+    int departmentId;
     
-    @OneToMany(mappedBy = "faculty",fetch = FetchType.LAZY)
-    @JsonIgnore
-    private Set<ClassSchedule> classSchedules;
+   
+    
+
 }

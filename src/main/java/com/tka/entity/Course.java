@@ -16,7 +16,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
+import com.tka.entity.Subject;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -32,18 +32,7 @@ public class Course {
 	@Column(nullable = false)
 	String courseName;
 	
-//	@OneToMany(cascade = CascadeType.ALL,mappedBy = "course")
-//	List<Subject> subject;
-	
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "department_id")
-    @JsonIgnore
-    private Department department;
-
-    @OneToMany(mappedBy = "course",fetch = FetchType.LAZY)
-    @JsonIgnore
-    private Set<Subject> subjects;
+	int subjectId;
 	
 	
 	

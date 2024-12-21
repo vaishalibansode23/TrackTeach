@@ -30,17 +30,7 @@ public class Faculty_Attendence {
 	LocalDate date;
 	@Column(nullable = false)
 	String status;
-	
 
-	
-//	@ManyToOne(cascade = CascadeType.ALL)
-//	@JoinColumn(name="classScheduleId")
-//	private ClassSchedule classschedule;
-//	
-//	@ManyToOne
-//	@JoinColumn(name="facultyId")
-//	private Faculty faculty;
-	
 	@ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "faculty_id")
 	@JsonIgnore

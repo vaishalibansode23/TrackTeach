@@ -32,12 +32,7 @@ public class Classroom {
 	
 
 	
-//	@OneToMany(cascade = CascadeType.ALL ,mappedBy = "classroom")
-//	List<ClassSchedule> classSchedule;
-	
-	@OneToMany(mappedBy = "classroom" ,fetch = FetchType.LAZY)
-	@JsonIgnore
-	private Set<ClassSchedule> classSchedules;
+
 	
 
 }

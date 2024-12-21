@@ -31,16 +31,7 @@ public class Department {
 	
 
 	
-//	@OneToMany(cascade = CascadeType.ALL,mappedBy = "department")
-//     List<Faculty> faculty;
-//	
-	@OneToMany(mappedBy = "department",fetch = FetchType.LAZY)
-	@JsonIgnore
-    private Set<Faculty> faculties;
 
-    @OneToMany(mappedBy = "department",fetch = FetchType.LAZY)
-    @JsonIgnore
-    private Set<Course> courses;
 	
 	
 
